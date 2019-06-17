@@ -43,7 +43,7 @@ namespace EShop.Controllers
           { 
               if (!User.Identity.IsAuthenticated) 
               { 
-                  return JavaScript("window.location = 'Account/Login'"); 
+                  return JavaScript("window.location = '/Account/Login'"); 
               } 
               var userId = User.Identity.GetUserId(); 
               var cart = db.Carts.FirstOrDefault(x => x.UserId == userId); 
