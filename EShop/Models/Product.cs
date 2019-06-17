@@ -10,7 +10,7 @@ namespace EShop.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "名称") ]
+        [Display(Name = "商品名称") ]
         [Required]
         public string Title { get; set; }
 

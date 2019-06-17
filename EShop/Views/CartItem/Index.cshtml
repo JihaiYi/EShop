@@ -1,19 +1,17 @@
 ﻿@model IEnumerable<EShop.Models.CartItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "购物车";
 }
 
-<h2>Index</h2>
+<h2>购物车</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Cart.UserId)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Product.Title)
         </th>
@@ -25,9 +23,9 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Cart.UserId)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Product.Title)
         </td>

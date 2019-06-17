@@ -14,6 +14,8 @@ namespace EShop.Models
 
         public int ProductId { get; set; }
 
+        [Display(Name = "商品数量")]
+
         public int ProductCount { get; set; }
 
         public int CartId { get; set; }
