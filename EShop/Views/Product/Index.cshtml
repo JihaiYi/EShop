@@ -1,6 +1,6 @@
 ﻿<script src="~/Scripts/jquery-1.10.2.js"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-<link href="~/Content/cart.css" rel="stylesheet" />
+
 
 @model IEnumerable<EShop.Models.Product>
 
@@ -10,9 +10,7 @@
 
 <h2>商品列表</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -34,8 +32,7 @@
 @foreach (var item in Model) {
     <tr>
         <td><img src="/images/@Html.DisplayFor(modelItem => item.ImageUrl)"
-                 width="250 " height="250">
-            
+                 width="250 " height="250">           
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
@@ -70,7 +67,4 @@
 
 </table>
 
-@*<div id="cart">
-    购物车：@ViewBag.CartProductCount 
-</div>*@
 
