@@ -1,0 +1,86 @@
+﻿@using EShop.Models;
+@using Microsoft.AspNet.Identity;
+@{ 
+
+    ViewBag.ProductCount = 0;
+    if (User.Identity.IsAuthenticated)
+    {
+        var userId = User.Identity.GetUserId();
+        var db = new ApplicationDbContext();
+        var cart = db.Carts.FirstOrDefault(x => x.UserId == userId);
+        if (cart != null)
+        {
+            var cartItems = db.CartItems.ToList();
+            var userCartItems = cartItems.Where(x => x.CartId == cart.Id).ToList();
+            ViewBag.ProductCount= userCartItems.Sum(x => x.ProductCount);
+        }
+    }
+}
+
+
+<link href="~/Content/cart.css" rel="stylesheet" />
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("段家滩496号的小店", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("商品列表", "Index", "Product")</li>
+                    <li>@Html.ActionLink("购物车项列表", "Index", "CartItem")</li>
+                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
+                    <li>@Html.ActionLink("关于", "About", "Home")</li>
+                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <div class="shopping_cart">
+                            @*<img src="/images/cart.jpg">*@
+                            <span class="glyphicon glyphicon-shopping-cart" style="color: white; font-size:18px" >
+                            </span>
+                            <div class="right_number" id="cart" >
+                                @ViewBag.ProductCount
+                            </div>
+                        </div>
+                    </li> 
+                    
+                                      
+                </ul>
+
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 段家滩496号的小店</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

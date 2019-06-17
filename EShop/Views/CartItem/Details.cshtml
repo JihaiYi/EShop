@@ -1,0 +1,42 @@
+﻿@model EShop.Models.CartItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CartItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cart.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cart.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductCount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

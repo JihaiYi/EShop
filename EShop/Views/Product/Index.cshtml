@@ -1,0 +1,76 @@
+﻿<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<link href="~/Content/cart.css" rel="stylesheet" />
+
+@model IEnumerable<EShop.Models.Product>
+
+@{
+    ViewBag.Title = "商品列表";
+}
+
+<h2>商品列表</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td><img src="/images/@Html.DisplayFor(modelItem => item.ImageUrl)"
+                 width="250 " height="250">
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+
+            @Ajax.ActionLink(
+                               "添加到购物车",
+                               "AjaxAddToCart",
+                               new { id = item.Id },
+                               new AjaxOptions
+                               {
+                                   UpdateTargetId="cart",
+                                   InsertionMode =InsertionMode.Replace,
+                                   HttpMethod="Get"
+                               }
+                            )
+
+        </td>
+    </tr>
+}
+
+</table>
+
+@*<div id="cart">
+    购物车：@ViewBag.CartProductCount 
+</div>*@
+
