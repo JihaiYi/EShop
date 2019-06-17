@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -257,6 +258,7 @@
     <Content Include="Views\CartItem\Details.cshtml" />
     <Content Include="Views\CartItem\Edit.cshtml" />
     <Content Include="Views\CartItem\Index.cshtml" />
+    <Content Include="Views\Product\AjaxAddToCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
