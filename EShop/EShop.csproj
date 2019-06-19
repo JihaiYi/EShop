@@ -250,10 +250,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\CartItem\Create.cshtml" />
-    <Content Include="Views\CartItem\Delete.cshtml" />
     <Content Include="Views\CartItem\Details.cshtml" />
-    <Content Include="Views\CartItem\Edit.cshtml" />
     <Content Include="Views\CartItem\Index.cshtml" />
     <Content Include="Views\Product\AjaxAddToCart.cshtml" />
   </ItemGroup>
