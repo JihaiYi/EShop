@@ -50,23 +50,18 @@
                     <li>@Html.ActionLink("购物车", "Index", "CartItem")</li>
                     <li>@Html.ActionLink("关于", "About", "Home")</li>
                     <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
-                </ul>
-                <ul class="nav navbar-nav">
                     <li>
                         <div class="shopping_cart">
                             @*<img src="/images/cart.jpg">*@
-                            <span class="glyphicon glyphicon-shopping-cart" style="color: white; font-size:18px" >
+                            <span class="glyphicon glyphicon-shopping-cart" style="color: white; font-size:18px">
                             </span>
-                            <div class="right_number" id="cart" >
+                            <div class="right_number" id="cart">
                                 @ViewBag.ProductCount
                             </div>
                         </div>
-                    </li> 
-                    
-                                      
+                    </li>
                 </ul>
-
-
+                
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
